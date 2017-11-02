@@ -1,0 +1,11 @@
+version: '2'
+services:
+  app:
+    build: "."
+    volumes:
+      - ./app:/app
+      - ./supervisor:/etc/supervisor
+      - ./nginx/gunicorn.conf:/etc/nginx/conf.d/gunicorn.conf
+    command: supervisord
+    ports:
+      - "50080:80"
