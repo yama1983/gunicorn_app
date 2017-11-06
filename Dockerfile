@@ -31,6 +31,7 @@ RUN pip3 install -r requirements3.txt
 RUN apt-get install lsof
 
 COPY ./nginx/gunicorn.conf /etc/nginx/conf.d/gunicorn.conf
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 COPY ./supervisor /etc/supervisor
 
 RUN /etc/init.d/nginx stop
